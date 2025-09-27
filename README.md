@@ -1,8 +1,8 @@
 ## ↳ Stargazers
-[![Stargazers repo roster for @zqx951102/DFSI](https://reporoster.com/stars/zqx951102/DFSI)](https://github.com/zqx951102/DFSI/stargazers)
+[![Stargazers repo roster for @zqx951102/RPPS](https://reporoster.com/stars/zqx951102/RPPS)](https://github.com/zqx951102/RPPS/stargazers)
 
 ## ↳ Forkers
-[![Forkers repo roster for @zqx951102/DFSI](https://reporoster.com/forks/zqx951102/DFSI)](https://github.com/zqx951102/DFSI/network/members)
+[![Forkers repo roster for @zqx951102/RPPS](https://reporoster.com/forks/zqx951102/RPPS)](https://github.com/zqx951102/RPPS/network/members)
 
 
 ![Python >=3.5](https://img.shields.io/badge/Python->=3.5-yellow.svg)
@@ -13,7 +13,7 @@
 <img src="doc/0.jpg" width="300" height="100" alt="图片名称"/>
 </div>
 
-This repository hosts the source code of our paper: [Dynamic Frequency Selection and Spatial Interaction Fusion for Robust Person Search](https://doi.org/10.1016/j.inffus.2025.103314). 
+This repository hosts the source code of our paper. 
 
 
 Challenges and Motivation:
