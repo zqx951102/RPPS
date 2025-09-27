@@ -13,7 +13,9 @@
 <img src="doc/0.jpg" width="300" height="100" alt="图片名称"/>
 </div>
 
-This repository hosts the source code of our paper. 
+## Introduction
+
+This is the official implementation for our paper. The code is based on the official code of [DAPS](https://github.com/caposerenity/DAPS) and [SPCL](https://github.com/yxgeee/SpCL).
 
 
 Challenges and Motivation:
@@ -39,9 +41,15 @@ The network structure:
 
 
 
+
 ## Installation
 
+run `python setup.py develop` to enable SPCL
+
+Install Nvidia [Apex](https://github.com/NVIDIA/apex)
+
 Run `pip install -r requirements.txt` in the root directory of the project.
+
 
 
 ## Quick Start
@@ -61,10 +69,13 @@ data
 Performance profile:
 <div align="center">
   
-| Dataset   | Name          | ASTD                                                        |
-| --------- | ------------- | ------------------------------------------------------------ |
-| CUHK-SYSU(Target) | prw_da.pth  | [model](https://drive.google.com/file/d/17mDmKqheoOtlb7iRLqFK7yV1H-DWyEJO/view?usp=sharing)|
-| PRW(Target)       | cuhk_da.pth  | [model](https://drive.google.com/file/d/17-rU8ep-bA1NN55hxHErfKPeW91eG0Zv/view?usp=sharing) |
+
+|  Source   |  Target   | Name |                             CKPT                             |
+| :-------: | :-------: | -------------| :----------------------------------------------------------: |
+|    PRW    | CUHK-SYSU | prw_da.pth | [ckpt](https://drive.google.com/file/d/1JjZKcbcqDeirjhGjvhJ-TIoN0ciUt1AD/view?usp=sharing) |
+| CUHK-SYSU |    PRW    | cuhk_da.pth  | [ckpt](https://drive.google.com/file/d/1hhx3LWthEikiN4swn2q_-Gg_58v-91Gu/view?usp=sharing) |
+
+
 
 </div>
 
