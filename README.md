@@ -119,7 +119,7 @@ OUTPUT_DIR: "/home/zqx_tesla/home/zqx_tesla/PersonReID/PersonReID2/RPPS/Output/p
 ## Comparison with SOTA:
 
 <div align="center">
-<img src="./doc/4.jpg" width="640" height="690"/>
+<img src="./doc/4.jpg" width="640" height="720"/>
 </div>
 <div align="center">
 <img src="./doc/5.jpg" width="640" height="590"/>
