@@ -1,0 +1,84 @@
+需要注释掉 seqnet_da.py 75行 才能不报错：
+self.roi_heads.box_roi_pool.forward = amp.half_function(self.roi_heads.box_roi_pool.forward)
+运行 cuhk和prw都注释掉这段话  cuhk b选择2 
+
+运行prw时候报错 需要修改： b选择2 还是会超内存 teslav100
+ #model, optimizer = amp.initialize(model, optimizer, opt_level="O1") ##cuhk时候选择1
+model, optimizer = amp.initialize(model, optimizer, opt_level="O1")    ##Prw时候选择1
+
+
+
+
+
+环境就用 daps1 以前配置的就行
+按照官网操作：
+下载代码  下载权重  激活SPCL 和APEX包
+
+修改数据的地址 在config文件里面
+
+
+test:
+PRW as the target domain:
+CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/cuhk_sysu_da.yaml --eval --ckpt ./ckpt/cuhk_da.pth
+
+loaded checkpoint ./ckpt/cuhk_da.pth
+model was trained for 22 epochs
+100% 6112/6112 [12:20<00:00,  8.25it/s]
+100% 2057/2057 [04:20<00:00,  7.88it/s]
+100% 2057/2057 [02:09<00:00, 15.92it/s]
+all detection:
+  recall = 86.98%
+  ap = 82.26%
+search ranking:
+  mAP = 38.86%
+  top- 1 = 80.89%
+  top- 5 = 89.55%
+  top-10 = 92.27%
+
+
+
+
+CUHK-SYSU as the target domain:
+CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/prw_da.yaml --eval --ckpt ./ckpt/prw_da.pth
+
+loaded checkpoint ./ckpt/prw_da.pth
+model was trained for 8 epochs
+100% 6978/6978 [13:50<00:00,  8.40it/s]
+100% 2900/2900 [05:58<00:00,  8.10it/s]
+100% 2900/2900 [02:02<00:00, 23.72it/s]
+all detection:
+  recall = 74.00%
+  ap = 66.23%
+search ranking:
+  mAP = 79.30%
+  top- 1 = 81.21%
+  top- 5 = 91.38%
+  top-10 = 93.79%
+
+
+
+
+训练阶段
+PRW as the target domain:
+CUDA_VISIBLE_DEVICES=1 python train.py --cfg configs/cuhk_sysu_da.yaml
+
+
+CUHK-SYSU as the target domain:
+CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/prw_da.yaml
+
+
+
+
+断点回复：
+CUDA_VISIBLE_DEVICES=1 python train.py --cfg configs/cuhk_sysu_da.yaml --resume --ckpt /home/zqx_tesla/home/zqx_tesla/PersonReID/PersonReID2/AAAI25-DSCA/Output/cuhk-da/epoch_11.pth
+
+
+
+
+
+计算模型复杂度：
+pip install thop ptflops fvcore
+pip install ptflops==0.6.9
+先去安装 再去 python computation_parameter.py 文件
+
+CUDA_VISIBLE_DEVICES=0，1 python computation_parameter.py
