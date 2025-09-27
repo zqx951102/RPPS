@@ -72,8 +72,8 @@ Performance profile:
 
 |  Source   |  Target   | Name |                             CKPT                             |
 | :-------: | :-------: | -------------| :----------------------------------------------------------: |
-|    PRW    | CUHK-SYSU | prw_da.pth | [ckpt](https://drive.google.com/file/d/1JjZKcbcqDeirjhGjvhJ-TIoN0ciUt1AD/view?usp=sharing) |
-| CUHK-SYSU |    PRW    | cuhk_da.pth  | [ckpt](https://drive.google.com/file/d/1hhx3LWthEikiN4swn2q_-Gg_58v-91Gu/view?usp=sharing) |
+|    PRW    | CUHK-SYSU | prw_da.pth | [ckpt](https://drive.google.com/file/d/1P0qULTut33a_IBiLoPpoM1-SIna6bU7J/view?usp=sharing) |
+| CUHK-SYSU |    PRW    | cuhk_da.pth  | [ckpt](https://drive.google.com/file/d/1zU83xPToQT_8xMoRxFe0xVo-vzggie3i/view?usp=sharing)|
 
 
 
