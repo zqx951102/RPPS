@@ -25,22 +25,17 @@ Challenges and Motivation:
 The network structure:
 
 <div align="center">
-<img src="./doc/2.jpg" width="800" height="350"/>
+<img src="./doc/2.jpg" width="800" height="550"/>
 </div>
 
 
 ****
 ## :fire: NEWS :fire:
 
-- [2025.5.07] **📣Accept**
-  
-- [2025.4.29] **📣We received comments requiring minor revisions from the Journal of Information Fusion!**
 
-- [2025.4.01] **📣We received comments requiring major revisions from the Journal of Information Fusion!**
-
-- [2025.2.25] **📣We submitted our paper to Information Fusion!**
+- [2025.9.27] **📣We submitted our paper to TIP!**
   
-- [2025.2.23] **📣We released the code.**
+- [2025.9.27] **📣We released the code.**
 
 
 
