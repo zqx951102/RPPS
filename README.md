@@ -56,15 +56,15 @@ data
 ├── PRW
 ```
 
-2. Following the link in the above table, download our pretrained model to anywhere you like, e.g., `$ROOT/exp_cuhk`
+2. Following the link in the above table, download our pretrained model to anywhere you like, e.g., `$ROOT/ckpt`
 
 Performance profile:
 <div align="center">
   
 | Dataset   | Name          | ASTD                                                        |
 | --------- | ------------- | ------------------------------------------------------------ |
-| CUHK-SYSU | ckpt_epoch_12.pth  | [model](https://drive.google.com/file/d/17mDmKqheoOtlb7iRLqFK7yV1H-DWyEJO/view?usp=sharing)|
-| PRW       | ckpt_epoch_13.pth  | [model](https://drive.google.com/file/d/17-rU8ep-bA1NN55hxHErfKPeW91eG0Zv/view?usp=sharing) |
+| CUHK-SYSU(Target) | prw_da.pth  | [model](https://drive.google.com/file/d/17mDmKqheoOtlb7iRLqFK7yV1H-DWyEJO/view?usp=sharing)|
+| PRW(Target)       | cuhk_da.pth  | [model](https://drive.google.com/file/d/17-rU8ep-bA1NN55hxHErfKPeW91eG0Zv/view?usp=sharing) |
 
 </div>
 
@@ -77,84 +77,70 @@ Please see the Demo photo:
 
 **Note**: At present, our script only supports single GPU training, but distributed training will be also supported in future. By default, the batch size and the learning rate during training are set to 3 and 0.003 respectively, which requires about 28GB of GPU memory. If your GPU cannot provide the required memory, try smaller batch size and learning rate (*performance may degrade*). Specifically, your setting should follow the [*Linear Scaling Rule*](https://arxiv.org/abs/1706.02677): When the minibatch size is multiplied by k, multiply the learning rate by k. For example:
 
+## Test
+```
+PRW as the target domain:
+CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/cuhk_sysu_da.yaml --eval --ckpt ./ckpt/cuhk_da.pth
 
+CUHK-SYSU as the target domain:
+CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/prw_da.yaml --eval --ckpt ./ckpt/prw_da.pth
+```
 
 ## Training
 ```
-CUHK:
-CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/cuhk_sysu_resnet.yaml
-CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/cuhk_sysu_convnext.yaml
-CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/cuhk_sysu_solider.yaml
+PRW as the target domain:
+CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/cuhk_sysu_da.yaml
 
-PRW：
-CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/prw_resnet.yaml
-CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/prw_convnext.yaml
-CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/prw_solider.yaml
 
+CUHK-SYSU as the target domain:
+CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/prw_da.yaml
 
 if out of memory, modify this：
-./configs/cuhk_sysu_convnext.yaml    BATCH_SIZE: 3  #5  
+./configs/cuhk_sysu_da.yaml   BATCH_SIZE: 2  #4
+./configs/prw_da.yaml   BATCH_SIZE_TRAIN: 2 #4
 
 Before running, you need to modify the addresses in these two files and link them to the directory where your data is located.
-./configs/_path_cuhk_sysu.yaml
-./configs/_path_prw.yaml
+OUTPUT_DIR: "/home/zqx_tesla/home/zqx_tesla/PersonReID/PersonReID2/RPPS/Output/cuhk-da"
+OUTPUT_DIR: "/home/zqx_tesla/home/zqx_tesla/PersonReID/PersonReID2/RPPS/Output/prw-da"
 ```
-
-**Tip**: If the training process stops unexpectedly, you can resume from the specified checkpoint.
-
-```
-python train.py --cfg configs/cuhk_sysu.yaml --resume --ckpt /path/to/your/checkpoint
-```
-
-**Note**: You need to modify the base_dir address in the file ./configs/_path_solider_weights.yaml.
-like this：
+## Algorithm procedure:
 <div align="center">
-<img src="./doc/8.jpg" />
-</div>
-
-<div align="center">
-  
-| Name          | Address                                                       |
-| ------------- | ------------------------------------------------------------ |
-| swin_base.pth  |[model](https://drive.google.com/file/d/1uh7tO34tMf73MJfFqyFEGx42UBktTbZU/view?usp=drive_link)|
-| swin_small.pth  |[model](https://drive.google.com/file/d/11uYzAkAv_8EvqpsKyK6W6ZM76UlnFbmo/view?usp=sharing)|
-| swin_tiny.pth  |[model](https://drive.google.com/file/d/12UyPVFmjoMVpQLHN07tNh4liHUmyDqg8/view?usp=drive_link)|
-
+<img src="./doc/3.jpg" width="640" height="590"/>
 </div>
 
 
 ## Comparison with SOTA:
 
 <div align="center">
-<img src="./doc/7.jpg" width="640" height="590"/>
+<img src="./doc/4.jpg" width="640" height="590"/>
+</div>
+<div align="center">
+<img src="./doc/5.jpg" width="640" height="590"/>
 </div>
 
 
-## Evaluation of different gallery size:
-
+## Qualitative Results:
 <div align="center">
-<img src="./doc/4.jpg" width="700" height="360"/>
-</div>
-Remember that when you test other code, you still need to set it to 100！！
-
-## Qualitative Results on CUHK-SYSU:
-<div align="center">
-<img src="./doc/5.jpg" width="700" height="580"/>
+<img src="./doc/6.jpg" width="700" height="580"/>
 </div>
 
-
-## Qualitative Results on PRW:
 <div align="center">
-<img src="./doc/6.jpg" width="700" height="420"/>
+<img src="./doc/7.jpg" width="700" height="580"/>
+</div>
+
+<div align="center">
+<img src="./doc/8.jpg" width="700" height="580"/>
 </div>
 
 ## Acknowledgment
 Thanks to the authors of the following repos for their code, which was integral in this project:
+- [DAPS](https://github.com/caposerenity/DAPS)
+- [DDAM](https://github.com/mustansarfiaz/DDAM-PS)
+- [FOUS](https://github.com/whbdmu/FOUS)
+- [DSCA](https://github.com/whbdmu/DSCA)
 - [SeqNet](https://github.com/serend1p1ty/SeqNet)
-- [NAE](https://github.com/dichen-cd/NAE4PS)
-- [GFN](https://github.com/LukeJaffe/GFN)
-- [torchvision](https://github.com/pytorch/vision)
 
+- 
 ## Pull Request
 
 Pull request is welcomed! Before submitting a PR, **DO NOT** forget to run `./dev/linter.sh` that provides syntax checking and code style optimation.
