@@ -78,15 +78,11 @@ Performance profile:
 
 
 </div>
-
 Please see the Demo photo:
-
 <div align="center">
 <img src="./doc/query.jpg" width="600" height="450"/>
 </div>
 
-
-**Note**: At present, our script only supports single GPU training, but distributed training will be also supported in future. By default, the batch size and the learning rate during training are set to 3 and 0.003 respectively, which requires about 28GB of GPU memory. If your GPU cannot provide the required memory, try smaller batch size and learning rate (*performance may degrade*). Specifically, your setting should follow the [*Linear Scaling Rule*](https://arxiv.org/abs/1706.02677): When the minibatch size is multiplied by k, multiply the learning rate by k. For example:
 
 ## Test
 ```
@@ -123,7 +119,7 @@ OUTPUT_DIR: "/home/zqx_tesla/home/zqx_tesla/PersonReID/PersonReID2/RPPS/Output/p
 ## Comparison with SOTA:
 
 <div align="center">
-<img src="./doc/4.jpg" width="640" height="590"/>
+<img src="./doc/4.jpg" width="640" height="690"/>
 </div>
 <div align="center">
 <img src="./doc/5.jpg" width="640" height="590"/>
@@ -151,10 +147,7 @@ Thanks to the authors of the following repos for their code, which was integral 
 - [DSCA](https://github.com/whbdmu/DSCA)
 - [SeqNet](https://github.com/serend1p1ty/SeqNet)
 
-- 
-## Pull Request
 
-Pull request is welcomed! Before submitting a PR, **DO NOT** forget to run `./dev/linter.sh` that provides syntax checking and code style optimation.
 
 
 ## Citation
