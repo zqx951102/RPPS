@@ -35,9 +35,9 @@ The network structure:
 ## :fire: NEWS :fire:
 
 
-- [2025.9.27] **📣We submitted our paper to TIP!**
+- [2026.1.7] **📣 Congratulations! Our paper has been accepted by the IEEE Transactions on Image Processing (TIP)!**
   
-- [2025.9.27] **📣We released the code.**
+
 
 
 
